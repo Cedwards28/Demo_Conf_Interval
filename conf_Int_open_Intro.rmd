@@ -21,7 +21,7 @@ In the previous lab, ``Sampling Distributions'', we looked at the population dat
 of houses from Ames, Iowa. Let's start by loading that data set.
 
 ```{r load-data, eval=TRUE}
-download.file("http://www.openintro.org/stat/data/ames.RData", destfile = "ames.RData")
+#download.file("http://www.openintro.org/stat/data/ames.RData", destfile = "ames.RData")
 load("ames.RData")
 ```
 
