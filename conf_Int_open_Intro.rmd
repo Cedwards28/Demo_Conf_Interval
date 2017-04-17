@@ -67,8 +67,8 @@ you are unfamiliar with this formula).
 
 ```{r ci, eval=TRUE}
 se <- sd(samp) / sqrt(60)
-lower <- sample_mean - 1.96 * se
-upper <- sample_mean + 1.96 * se
+lower <- sample_mean + qnorm(p=.025)* se
+upper <- sample_mean + qnorm(p=.975) * se
 c(lower, upper)
 ```
 
@@ -139,8 +139,8 @@ for(i in 1:50){
 Lastly, we construct the confidence intervals.
 
 ```{r ci50, eval=TRUE}
-lower_vector <- samp_mean - 1.96 * samp_sd / sqrt(n) 
-upper_vector <- samp_mean + 1.96 * samp_sd / sqrt(n)
+lower_vector <- samp_mean + qnorm(p=.025) * samp_sd / sqrt(n) 
+upper_vector <- samp_mean + qnorm(p=.975) * samp_sd / sqrt(n)
 ```
 
 Lower bounds of these 50 confidence intervals are stored in `lower_vector`, 
@@ -163,8 +163,8 @@ c(lower_vector[1], upper_vector[1])
     plot_ci(lower_vector, upper_vector, mean(population))
     ```
 
--   Pick a confidence level of your choosing, provided it is not 95%. What is 
-    the appropriate critical value?
+-   Pick a confidence level of 80%. What is 
+    the appropriate critical value? (use qnorm(p=.10) and qnorm(p=.90))
 
 -   Calculate 50 confidence intervals at the confidence level you chose in the 
     previous question. You do not need to obtain new samples, simply calculate 
